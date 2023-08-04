@@ -1,0 +1,40 @@
+{
+	"discord": {
+		"enable": false,
+		"token": "your_discord_token",
+		"upload": "file_upload_phrase",
+		"download": "file_download_phrase"
+
+	},
+	"slack": {
+		"enable": false,
+		"rtm_auth_token": "your_slack_rtm_auth_token",
+		"auth_token": "your_slack_auth_token",
+		"app_token": "your_slack_app_token-not_needed_if_doing_RTM",
+		"upload": "file_upload_phrase",
+		"download": "file_download_phrase",
+		"legacy_rtm_mode": true
+	},
+	"google": {
+		"enable": false,
+		"credential": "your_google_credentials_json_file-escaped_characters",
+		"sheet_id": "your_google_sheet_id",
+		"drive_id": "your_google_drive_id",
+		"show_token": false,
+		"enable_quic": false
+	},
+	"o365": {
+		"enable": false,
+		"tenant_id": "your_o365_tenant_id",
+		"client_id": "your_o365_client_id",
+		"client_secret": "your_o365_client_secret",
+		"file_name": "name_of_your_xls_file_for_c2_commands",
+		"user_id": "your_o365_user_id"
+	},
+	"debug": {
+		"enable": true
+	},
+	"multi_app": {
+		"enable": true
+	}
+}

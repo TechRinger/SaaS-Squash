@@ -1,8 +1,8 @@
 # SaaS-Squash Overview
 
-This is a collection of SaaS apps that can be used as C2 servers that have been used by threat actors in the past. This is not an exhaustive list, but will continue to add intigrations as they are found. The main goal is on this app is to lower skill level required for defenders to be able to test their security controls against known C2 infrastructure.
+This is a collection of SaaS apps that can be used as C2 servers that have been used by threat actors in the past. This is not an exhaustive list, but will continue to add integrations as they are found. The main goal is on this app is to lower skill level required for defenders to be able to test their security controls against known C2 infrastructure.
 
-This is designed to be as straight forward as possible and does not use any EDR or firewall bypass techneques when building/compiling the executable. This is to ensure that the payloads are as easy to detect as possible while trying to mimic the real world as techniques.
+This is designed to be as straight forward as possible and does not use any EDR or firewall bypass techniques when building/compiling the executable. This is to ensure that the payloads are as easy to detect as possible while trying to mimic the real world as techniques.
 
 ## Disclaimer
 
@@ -19,8 +19,8 @@ This is for educational purposes only. I am not responsible for any damage cause
 
 - [X] Release the first version
 - [ ] Get the Google Sheets HTTP3/QUIC working
-- [ ] Get Slack Web API working
-- [ ] Add Pastbin, Gists, and other file sharing apps
+- [ ] Get Slack Web API working (currently working with RTM)
+- [ ] Add Pastebin, Gists, and other file sharing apps
 - [ ] Add Telegram, Twitter, and other social media apps
 - [ ] Add more Office 365 apps
 - [ ] Add more Google apps
@@ -28,7 +28,7 @@ This is for educational purposes only. I am not responsible for any damage cause
 
 ## Configuration
 
-The app can be used to create a single SaaS app, fall through multiple apps until a connection is made, or try to create sessions to each one that's configured simultainously.  Each of these can be controleld by either:
+The app can be used to create a single SaaS app, fall through multiple apps until a connection is made, or try to create sessions to each one that's configured simultaneously.  Each of these can be controlled by either:
 
 - Hardcoding the values inside the common/credentials.go file flag to the app
 - Filling in the values in the config.json file and having it in the same directory as the app when it's launched
@@ -58,7 +58,7 @@ Each time the app is launched it will create a 8 character hex UUID to let the e
 ### Defaults
 
 The following table shows the default values for the app when it's launched without any flags or config.json file.  All other values not listed will be empty strings.
-|Setting|Default Value|Descrtiption|
+|Setting|Default Value|Description|
 |-------|-------------|------------|
 |Debug|true|Debug mode is on by default|
 |MultiApp|true|All enabled apps will be used by default|
@@ -168,7 +168,7 @@ Use the sample_config.json as a template to fill in the values for the SaaS apps
 
 ## Building the app
 
-Inside the build folder two scripts and a sample_config.json file have been included to help create builds for Windows, Linux, and MacOS 64-bit OS.  Each build script takes two arguments, the first is the executable name, and the second is to tell the script to compress the executable or not.  Each dose the same thing so choise the one that you like best...or ignore them and build the app yourself :see_no_evil:
+Inside the build folder two scripts and a sample_config.json file have been included to help create builds for Windows, Linux, and MacOS 64-bit OS.  Each build script takes two arguments, the first is the executable name, and the second is to tell the script to compress the executable or not.  Each dose the same thing so choose the one that you like best...or ignore them and build the app yourself :see_no_evil:
 
 - build.sh - `Bash` script for Linux and MacOS
 - build.ps1 - `PowerShell` script for Windows

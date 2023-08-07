@@ -2,10 +2,10 @@
 
 ## Recignition
 
-GC2-sheet was one of the first SaaS C2's that I ran across and wanted to intigrate looCiprian's version as a tribute.
+GC2-sheet was one of the first SaaS C2's that I ran across and wanted to integrate looCiprian's version as a tribute.
 [looCiprian/GC2-sheet](<https://github.com/looCiprian/GC2-sheet>)  
 
-Feel free to support thier hard work
+Feel free to support their hard work
 [paypal link](<https://www.paypal.com/donate?hosted_button_id=8EWYXPED4ZU5E>)
 
 ## Requirements

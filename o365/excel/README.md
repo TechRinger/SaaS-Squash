@@ -97,13 +97,13 @@ This area is intigrated a project I've been working on with a good friend of min
 ### Features
 
 - Command execution using Office365 Excel Sheet as a console
-- Download files on the target using Microsfot OneDrive
-- Upload files (data exfiltration) using Microsft OneDrive
+- Download files on the target using Microsofot OneDrive
+- Upload files (data exfiltration) using Microsoft OneDrive
 - Exit
 
 #### Command execution
 
-The program will perform a request to the spreedsheet every 30 sec (by default) to check for new commands.
+The program will perform a request to the spreadsheet every 30 sec (by default) to check for new commands.
 Enter the command in column **A** and the output will be added to column **B**
 
 #### Upload File

@@ -29,17 +29,13 @@ func createSheet(client *sheets.Service, spreadSheet *configuration.SpreadSheet)
 		common.AllC2Configs.Debug.LogFatalDebug("Error creating new sheet: " + err.Error())
 	}
 
-	writeRange := sheetName + "!D2:" + spreadSheet.CommandSheet.RangeTickerConfiguration
-	writeData := [][]interface{}{{"Delay configuration (sec)", spreadSheet.CommandSheet.Ticker}}
+	writeRange := sheetName + "!A1:" + spreadSheet.CommandSheet.RangeTickerConfiguration
+	writeData := [][]interface{}{{"Command", "Output", "Delay configuration (sec)", spreadSheet.CommandSheet.Ticker}}
 
 	var valueRange = &sheets.ValueRange{
 		Range:  writeRange,
 		Values: writeData,
 	}
-
-	//var vr sheets.ValueRange
-	//myVal := []interface{}{"One"}
-	//vr.Values = append(vr.Values, myVal)
 
 	_, err = client.Spreadsheets.Values.Update(spreadSheet.SpreadSheetId, writeRange, valueRange).ValueInputOption("RAW").Do()
 	if err != nil {

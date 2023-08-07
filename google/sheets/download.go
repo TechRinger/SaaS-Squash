@@ -1,15 +1,29 @@
 package sheets
 
 import (
+	"errors"
+	"fmt"
 	"io"
 	"os"
 
 	"google.golang.org/api/drive/v3"
 )
 
-func downloadFile(clientDrive *drive.Service, fileId string, downloadPath string) error {
+func downloadFile(clientDrive *drive.Service, fileName string, downloadPath string) error {
 
-	resp, err2 := clientDrive.Files.Get(fileId).Download()
+	// Step 6: Search for the file by name in Google Drive
+	files, err := clientDrive.Files.List().Q(fmt.Sprintf("name='%s'", fileName)).Do()
+	if err != nil {
+		return errors.New("unable to retrieve file list")
+	}
+
+	if len(files.Files) == 0 {
+		return errors.New("no files found with the specified name: " + fileName + ".")
+	}
+
+	fileID := files.Files[0].Id
+	resp, err2 := clientDrive.Files.Get(fileID).Download()
+
 	if err2 != nil {
 		return err2
 	}

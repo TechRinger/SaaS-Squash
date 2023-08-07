@@ -30,13 +30,13 @@ func Run() error {
 	spreadSheet.CommandSheet.Ticker = 10
 
 	// Set default range for the ticker configuration
-	spreadSheet.CommandSheet.RangeTickerConfiguration = "E2"
+	spreadSheet.CommandSheet.RangeTickerConfiguration = "D1"
 
 	// Creating first command
 	command := configuration.Commands{
 		RangeIn:  "!A",
 		RangeOut: "!B",
-		RangeId:  1,
+		RangeId:  2,
 		Input:    "",
 		Output:   "",
 	}

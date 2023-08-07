@@ -18,6 +18,7 @@ This is for educational purposes only. I am not responsible for any damage cause
 ## To Do
 
 - [X] Release the first version
+- [X] Change Google Drive to use filename instead of file ID
 - [ ] Get the Google Sheets HTTP3/QUIC working
 - [ ] Get Slack Web API working (currently working with RTM)
 - [ ] Add Pastebin, Gists, and other file sharing apps
@@ -44,8 +45,6 @@ Each time the app is launched it will create a 8 character hex UUID to let the e
    - Execute PowerShell encoded command example to get the public IP ((Invoke-WebRequest -URI https://icanhazip.com/).Content): `60d45c81 KABJAG4AdgBvAGsAZQAtAFcAZQBiAFIAZQBxAHUAZQBzAHQAIAAtAFUAUgBJACAAaAB0AHQAcABzADoALwAvAGkAYwBhAG4AaABhAHoAaQBwAC4AYwBvAG0ALwApAC4AQwBvAG4AdABlAG4AdAA=`
 1. O365 Excel, Google Sheets exapmle: both of these apps create spreadsheets to track endpoints connections so the UUID isn't needed.  Instead the command to get executed goes in Column A and the return value is in Column B.  These each use the designated file storage location to upload and download files (e.g. Google Drive, OneDrive, etc.)
 
-> **Note:** Currently Google uses the drive file ID to download files and O365 uses the file name.
-> This will be updated in the future to use the file name for both.
 
 | Example | Column A | Column B |
 | -------- | -------- | -------- |

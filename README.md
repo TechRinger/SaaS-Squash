@@ -1,5 +1,7 @@
 # SaaS-Squash Overview
 
+[[https://github.com/TechRinger/media/blob/main/images/SaaS-Squash.png?raw=true|width=100px]]
+
 This is a collection of SaaS apps that can be used as C2 servers that have been used by threat actors in the past. This is not an exhaustive list, but will continue to add integrations as they are found. The main goal is on this app is to lower skill level required for defenders to be able to test their security controls against known C2 infrastructure.
 
 This is designed to be as straight forward as possible and does not use any EDR or firewall bypass techniques when building/compiling the executable. This is to ensure that the payloads are as easy to detect as possible while trying to mimic the real world as techniques.

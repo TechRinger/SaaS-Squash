@@ -69,5 +69,4 @@ func Run(c2 *ExcelClient) error {
 			}()
 		}
 	}
-	return nil
 }

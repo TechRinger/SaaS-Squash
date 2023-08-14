@@ -1,6 +1,7 @@
 package sheets
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 
@@ -20,7 +21,10 @@ func uploadFile(clientDrive *drive.Service, localFilePath string, driveFolderId 
 		Parents: parent,
 	}
 
-	file, _ := os.Open(localFilePath)
+	file, err_os := os.Open(localFilePath)
+	if err_os != nil {
+		return fmt.Errorf("error opening %v", localFilePath)
+	}
 
 	_, err := clientDrive.Files.Create(f).Media(file).Do()
 

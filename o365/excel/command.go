@@ -47,12 +47,9 @@ func (cmd *Command) Execute(c2 ExcelClient) {
 }
 
 func (cmd *Command) ExecuteAndUpdate(c2 ExcelClient) {
-
+	//gets here
 	var err error
-	cmd.Output, err = common.ExecuteCommand(cmd.Input)
-	if err != nil {
-		common.AllC2Configs.Debug.LogFatalDebug(err.Error())
-	}
+	cmd.Execute(c2)
 
 	coord := fmt.Sprintf("%v%v", cmd.OutputCol, cmd.Row+1)
 
@@ -72,7 +69,9 @@ func (cmd *Command) uploadFile(c2 ExcelClient) {
 
 		file, err := os.Open(upload_path)
 		if err != nil {
-			common.AllC2Configs.Debug.LogFatalDebugError("Failed to open", err)
+			common.AllC2Configs.Debug.LogDebugError("Failed to open", err)
+			cmd.Output = err.Error()
+			return
 		}
 		defer file.Close()
 		bf, _ := io.ReadAll(file)

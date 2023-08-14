@@ -41,7 +41,7 @@ Each time the app is launched it will create a 8 character hex UUID to let the e
    - Download example: `60d45c81 download`
    - Upload example of README.md: `60d45c81 download README.md`
    - Execute whois example: `60d45c81 whois`
-   - Execute PowerShell encoded command example to get the public IP ((Invoke-WebRequest -URI https://icanhazip.com/).Content): `60d45c81 KABJAG4AdgBvAGsAZQAtAFcAZQBiAFIAZQBxAHUAZQBzAHQAIAAtAFUAUgBJACAAaAB0AHQAcABzADoALwAvAGkAYwBhAG4AaABhAHoAaQBwAC4AYwBvAG0ALwApAC4AQwBvAG4AdABlAG4AdAA=`
+   - Execute PowerShell encoded command example to get the public IP ((Invoke-WebRequest -URI https://icanhazip.com/).Content): `KAAoAEkAbgB2AG8AawBlAC0AVwBlAGIAUgBlAHEAdQBlAHMAdAAgAC0AVQBSAEkAIABoAHQAdABwAHMAOgAvAC8AaQBjAGEAbgBoAGEAegBpAHAALgBjAG8AbQAvACkALgBDAG8AbgB0AGUAbgB0ACkA`
 1. O365 Excel, Google Sheets exapmle: both of these apps create spreadsheets to track endpoints connections so the UUID isn't needed.  Instead the command to get executed goes in Column A and the return value is in Column B.  These each use the designated file storage location to upload and download files (e.g. Google Drive, OneDrive, etc.)
 
 

